@@ -18,13 +18,13 @@ Truvesta is the **UI/product shell**; BrokerOps is the **authority kernel**.
 | URL fetched | `http://localhost:3001/command-center` |
 | Capture date | 2026-01-15 (Asia/Nicosia) |
 | Kernel commit | `brokerops@5c49f1f` |
-| UI commit | `truvesta@8c8af36` |
-| SHA256 | `d20ce2e71b21e83e5a48b9f3ed04127b2d48e9d96bb875b99d7ad7779334c182` |
+| UI commit | `truvesta@c10eb34` |
+| SHA256 | `6ba39d600584128e3e0bd3dc8823b3616f560f6d335e14699cf08c7dde53b9c8` |
 
 ### Provenance String (verified in HTML)
 
 ```
-KERNEL: brokerops@5c49f1f • UI: truvesta@8c8af36 • 2026-01-15 (Asia/Nicosia)
+KERNEL: brokerops@5c49f1f • UI: truvesta@c10eb34 • 2026-01-15 (Asia/Nicosia)
 ```
 
 ### Deterministic Reproduction Command
@@ -61,7 +61,7 @@ If any one changes, recapture all three. This prevents demo-proof disputes.
 - [x] Boundary clarity: "Authority layer emits intent; execution platform remains master."
 - [x] Economics disclaimer: "Demo numbers are placeholders (do not treat as realized P&L)."
 - [x] Routing labeled as `ADVISORY` (not execution)
-- [x] Dual-SHA footer: `KERNEL: brokerops@5c49f1f • UI: truvesta@8c8af36`
+- [x] Dual-SHA footer: `KERNEL: brokerops@5c49f1f • UI: truvesta@c10eb34`
 
 ### Verification
 
