@@ -1,0 +1,3 @@
+server: Vercel
+x-vercel-cache: HIT
+x-vercel-id: fra1::z5qt8-1768509907396-69dd4aff49fc
