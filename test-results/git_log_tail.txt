@@ -1,3 +1,4 @@
+70ed158 evidence: git provenance + messaging fix (pre-deploy)
 a175f4d evidence: capture for c10eb34
 c10eb34 messaging: proactive gate positioning + competitive matrix + Q&A
 4db77c3 evidence: capture for 8c8af36

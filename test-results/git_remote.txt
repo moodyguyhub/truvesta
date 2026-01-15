@@ -1,2 +1,2 @@
-# No remote configured yet (pre-deploy state)
-# Remote will be added during P1.2.1 GitHub push
+origin	https://github.com/moodyguyhub/truvesta.git (fetch)
+origin	https://github.com/moodyguyhub/truvesta.git (push)
