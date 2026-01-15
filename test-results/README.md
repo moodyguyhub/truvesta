@@ -18,17 +18,31 @@ Truvesta is the **UI/product shell**; BrokerOps is the **authority kernel**.
 | URL fetched | `http://localhost:3001/command-center` |
 | Capture date | 2026-01-15 (Asia/Nicosia) |
 | Kernel commit | `brokerops@5c49f1f` |
-| UI commit | `truvesta@a655757` |
-| SHA256 | `9ae1471dcf6fd818e8ba1f67a6214510a0f348f7fd98ef6a01cdbcba87d84ee9` |
+| UI commit | `truvesta@4f3851a` |
+| SHA256 | `e5777cdfad156a2a37937627c394023b65d69bf62c2bcb3ea4b5d6e8ef47d339` |
 
-### Reproduction Command
+### Provenance String (verified in HTML)
+
+```
+KERNEL: brokerops@5c49f1f • UI: truvesta@4f3851a • 2026-01-15 (Asia/Nicosia)
+```
+
+### Deterministic Reproduction Command
 
 ```bash
-# From truvesta repo root
-pnpm dev &
-sleep 5
-curl -sS --max-time 5 http://localhost:3001/command-center > test-results/command_center_page.html
+# From truvesta repo root — ALWAYS pin the SHA at capture time
+cd /home/mahmood-asadi/truvesta
+UI_SHA="$(git rev-parse --short HEAD)"
+
+pkill -f "next dev" 2>/dev/null || true
+NEXT_PUBLIC_GIT_COMMIT_SHA="$UI_SHA" npx next dev -p 3001 &
+sleep 8
+
+curl -sS --max-time 10 http://localhost:3001/command-center > test-results/command_center_page.html
 sha256sum test-results/command_center_page.html | tee test-results/command_center_page.sha256
+
+# Verify provenance matches
+grep -oE "KERNEL: brokerops@[a-f0-9]+ • UI: truvesta@[a-f0-9]+.*Asia/Nicosia" test-results/command_center_page.html | head -1
 ```
 
 Or use the npm script:
@@ -36,13 +50,18 @@ Or use the npm script:
 pnpm capture-evidence
 ```
 
+### Atomic Evidence Principle
+
+**Provenance string + captured HTML + SHA256** form a single atomic unit.
+If any one changes, recapture all three. This prevents demo-proof disputes.
+
 ### Contract Compliance Checklist
 
 - [x] Uses canonical terms: `AUTHORIZED` / `BLOCKED` (not PASSED/ALLOW)
 - [x] Boundary clarity: "Authority layer emits intent; execution platform remains master."
 - [x] Economics disclaimer: "Demo numbers are placeholders (do not treat as realized P&L)."
 - [x] Routing labeled as `ADVISORY` (not execution)
-- [x] Kernel commit pin in footer: `brokerops@5c49f1f`
+- [x] Dual-SHA footer: `KERNEL: brokerops@5c49f1f • UI: truvesta@4f3851a`
 
 ### Verification
 
