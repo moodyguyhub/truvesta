@@ -1,0 +1,6 @@
+a175f4d evidence: capture for c10eb34
+c10eb34 messaging: proactive gate positioning + competitive matrix + Q&A
+4db77c3 evidence: capture for 8c8af36
+8c8af36 P0: deterministic evidence capture (atomic unit: provenance+HTML+SHA256)
+856c185 P1.1: dual-SHA footer + env var provenance + evidence docs
+a655757 P1: scaffold Truvesta UI shell (/command-center + evidence)

@@ -50,9 +50,9 @@ Truvesta is the **commercial UI shell**. The authority kernel is **BrokerOps**.
 
 ## Integration Point
 
-**Server-side integration at the execution authority boundary** (platform API / plugin layer) that enforces "no authorization → no execution."
+**Pre-execution authorization gate** at the platform boundary. The execution platform queries Truvesta for authorization; execution proceeds only with `AUTHORIZED` token.
 
-For MT5: Server-side API / plugin integration (Manager API / Server API class) for pre-execution gating.
+> Platform integration specifics (MT5 Manager API, Server API, etc.) are implementation details of the adapter layer — not yet proven by artifacts.
 
 ## Competitive Positioning
 
